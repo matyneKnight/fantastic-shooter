@@ -3,12 +3,19 @@ pygame.init()
 
 # init game screen
 pygame.display.set_caption("Comet fall Game")
-pygame.display.set_mode((1080, 720))
+screen =  pygame.display.set_mode((1080, 720))
+
+# load game background image
+background = pygame.image.load('assets/bg.jpg')
 
 running = True
 
 # boucle on game
 while running:
+    # apply game background and update screen
+    screen.blit(background, (0,-200))
+    pygame.display.flip()
+
     # if user stop the game
     for event in pygame.event.get():
         # for screen close event
