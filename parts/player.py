@@ -17,7 +17,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y = 500
 
     def launch_bullet(self):
-        self.bullets.add(Bullet())
+        self.bullets.add(Bullet(self))
 
     def move_right(self):
         self.rect.x += self.velocity

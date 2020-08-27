@@ -24,6 +24,8 @@ while running:
     screen.blit(game.player.image,game.player.rect)
 
     # draw player bullets group on screen
+    for bullet in game.player.bullets:
+        bullet.move()
     game.player.bullets.draw(screen)
 
     # move the player (with collision detection)
