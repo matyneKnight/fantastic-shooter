@@ -15,7 +15,7 @@ background = pygame.image.load('assets/bg.jpg')
 
 running = True
 
-# boucle on game
+# loop on game (running...)
 while running:
     # apply game background
     screen.blit(background, (0,-200))
@@ -23,10 +23,10 @@ while running:
     # load game player
     screen.blit(game.player.image,game.player.rect)
 
-    # move the player
-    if game.keys_pressed.get(pygame.K_RIGHT):
+    # move the player (detect collision)
+    if game.keys_pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
         game.player.move_right()
-    elif game.keys_pressed.get(pygame.K_LEFT):
+    elif game.keys_pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
         game.player.move_left()
 
     # update game screen
