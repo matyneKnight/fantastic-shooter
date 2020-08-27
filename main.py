@@ -23,7 +23,7 @@ while running:
     # load game player
     screen.blit(game.player.image,game.player.rect)
 
-    # move the player (detect collision)
+    # move the player (with collision detection)
     if game.keys_pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
         game.player.move_right()
     elif game.keys_pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
