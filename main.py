@@ -25,8 +25,14 @@ running = True
 
 # boucle on game
 while running:
-    # apply game background and update screen
+    # apply game background
     screen.blit(background, (0,-200))
+
+    # load game player
+    screen.blit(player.image, (0,0))
+
+
+    # update game screen
     pygame.display.flip()
 
     # if user stop the game
