@@ -1,6 +1,10 @@
 import pygame
 pygame.init()
 
+class Game:
+    def __init__(self):
+        self.player = Player()
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -10,14 +14,15 @@ class Player(pygame.sprite.Sprite):
         self.velocity = 5
         self.image = pygame.image.load('assets/player.png')
         self.rect = self.image.get_rect()
-
-#init game player
-player = Player()
+        self.rect.x = 400
+        self.rect.y = 500
 
 # init game screen
 pygame.display.set_caption("Comet fall Game")
 screen =  pygame.display.set_mode((1080, 720))
 
+# load new game
+game = Game()
 # load game background image
 background = pygame.image.load('assets/bg.jpg')
 
@@ -29,7 +34,7 @@ while running:
     screen.blit(background, (0,-200))
 
     # load game player
-    screen.blit(player.image, (0,0))
+    screen.blit(game.player.image,game.player.rect)
 
 
     # update game screen
