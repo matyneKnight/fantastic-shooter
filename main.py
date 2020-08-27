@@ -23,6 +23,9 @@ while running:
     # load game player
     screen.blit(game.player.image,game.player.rect)
 
+    # draw player bullets group on screen
+    game.player.bullets.draw(screen)
+
     # move the player (with collision detection)
     if game.keys_pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
         game.player.move_right()
@@ -32,7 +35,7 @@ while running:
     # update game screen
     pygame.display.flip()
 
-    # if user stop the game
+    # Detect all events when game run
     for event in pygame.event.get():
         # detect screen close event
         if event.type == pygame.QUIT:
@@ -43,5 +46,10 @@ while running:
         # detect keyboard key press/release event
         elif event.type == pygame.KEYDOWN:
             game.keys_pressed[event.key] = True
+
+            # detect shoot key press (space)
+            if event.key == pygame.K_SPACE:
+                game.player.launch_bullet()
+
         elif event.type == pygame.KEYUP:
             game.keys_pressed[event.key] = False

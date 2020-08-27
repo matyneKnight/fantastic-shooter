@@ -1,4 +1,5 @@
 import pygame
+from parts.bullet import Bullet
 
 #define the player class
 class Player(pygame.sprite.Sprite):
@@ -8,11 +9,15 @@ class Player(pygame.sprite.Sprite):
         self.max_health = 100
         self.health = 100
         self.attack = 10
+        self.bullets = pygame.sprite.Group()
         self.velocity = 5
         self.image = pygame.image.load('assets/player.png')
         self.rect = self.image.get_rect()
         self.rect.x = 400
         self.rect.y = 500
+
+    def launch_bullet(self):
+        self.bullets.add(Bullet())
 
     def move_right(self):
         self.rect.x += self.velocity
