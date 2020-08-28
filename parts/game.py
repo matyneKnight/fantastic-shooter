@@ -12,7 +12,18 @@ class Game:
         self.players.add(self.player)
         self.monsters = pygame.sprite.Group()
         self.keys_pressed = {}
+
+
+    def start(self):
+        self.is_playing = True
         self.spawn_monster()
+        self.spawn_monster()
+
+    def game_over(self):
+        # restart the game
+        self.monsters = pygame.sprite.Group()
+        self.player.health = self.player.max_health
+        self.is_playing = False
 
     def update(self, screen):
         # load game player
