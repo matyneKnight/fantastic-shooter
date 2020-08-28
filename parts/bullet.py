@@ -1,5 +1,6 @@
 import pygame
 
+
 class Bullet(pygame.sprite.Sprite):
 
     def __init__(self, player):
@@ -17,7 +18,7 @@ class Bullet(pygame.sprite.Sprite):
     def rotate(self):
         self.angle += 12
         self.image = pygame.transform.rotozoom(self.origin_image, self.angle, 1)
-        self.rect = self.image.get_rect(center= self.rect.center)
+        self.rect = self.image.get_rect(center=self.rect.center)
 
     def move(self):
         self.rect.x += self.velocity

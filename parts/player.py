@@ -1,7 +1,8 @@
 import pygame
 from parts.bullet import Bullet
 
-#define the player class
+
+# define the player class
 class Player(pygame.sprite.Sprite):
 
     def __init__(self, game):
@@ -24,7 +25,8 @@ class Player(pygame.sprite.Sprite):
     def damage(self, amount):
         if self.health - amount > 0:
             self.health -= amount
-        else: self.health = 0
+        else:
+            self.health = 0
 
     def update_health_bar(self, surface):
         pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 50, self.rect.y + 20, self.max_health, 7])
