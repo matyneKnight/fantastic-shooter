@@ -40,23 +40,27 @@ while running:
         screen.blit(banner, banner_rect)
 
     # update game screen
-        pygame.display.flip()
+    pygame.display.flip()
 
-        # Detect all events when game run
-        for event in pygame.event.get():
-            # detect screen close event
-            if event.type == pygame.QUIT:
-                running = False
-                pygame.quit()
-                print("Closing the game...")
+    # Detect all events when game run
+    for event in pygame.event.get():
+        # detect screen close event
+        if event.type == pygame.QUIT:
+            running = False
+            pygame.quit()
+            print("Closing the game...")
 
-            # detect keyboard key press/release event
-            elif event.type == pygame.KEYDOWN:
-                game.keys_pressed[event.key] = True
+        # detect keyboard key press/release event
+        elif event.type == pygame.KEYDOWN:
+            game.keys_pressed[event.key] = True
 
-                # detect shoot key press (space)
-                if event.key == pygame.K_SPACE:
-                    game.player.launch_bullet()
+            # detect shoot key press (space)
+            if event.key == pygame.K_SPACE:
+                game.player.launch_bullet()
 
-            elif event.type == pygame.KEYUP:
-                game.keys_pressed[event.key] = False
+        elif event.type == pygame.KEYUP:
+            game.keys_pressed[event.key] = False
+
+        elif event.type  == pygame.MOUSEBUTTONDOWN:
+            if play_button_rect.collidepoint(event.pos):
+                game.is_playing = True
