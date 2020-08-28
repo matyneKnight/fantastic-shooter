@@ -28,6 +28,11 @@ while running:
         bullet.move()
     game.player.bullets.draw(screen)
 
+    # draw monster on screen
+    for monster in game.monsters:
+        monster.forward()
+    game.monsters.draw(screen)
+
     # move the player (with collision detection)
     if game.keys_pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
         game.player.move_right()
