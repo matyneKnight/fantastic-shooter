@@ -2,8 +2,9 @@ import pygame
 
 class Monster(pygame.sprite.Sprite):
 
-    def __init__(self):
+    def __init__(self, game):
         super().__init__()
+        self.game = game
         self.max_health = 100
         self.health = 100
         self.attack = 5
@@ -14,4 +15,6 @@ class Monster(pygame.sprite.Sprite):
         self.rect.y = 540
 
     def forward(self):
-        self.rect.x -= self.velocity
+        # move if not collide with the player
+        if not self.game.check_collision(self, self.game.players):
+            self.rect.x -= self.velocity
