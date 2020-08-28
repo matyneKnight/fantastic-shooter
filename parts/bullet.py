@@ -24,8 +24,9 @@ class Bullet(pygame.sprite.Sprite):
         self.rotate()
 
         # detect if bullet touch a monster
-        if self.player.game.check_collision(self, self.player.game.monsters):
+        for monster in self.player.game.check_collision(self, self.player.game.monsters):
             self.remove()
+            monster.damage(self.player.attack)
 
         # detect if bullet over the screen and destroy it
         if self.rect.x > 1080:
