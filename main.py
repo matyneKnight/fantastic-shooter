@@ -31,6 +31,7 @@ while running:
     # draw monster on screen
     for monster in game.monsters:
         monster.forward()
+        monster.update_health_bar(screen)
     game.monsters.draw(screen)
 
     # move the player (with collision detection)

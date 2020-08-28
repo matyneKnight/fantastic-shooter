@@ -14,6 +14,12 @@ class Monster(pygame.sprite.Sprite):
         self.rect.x = 1000
         self.rect.y = 540
 
+    def update_health_bar(self, surface):
+        # define health  bar configs and draw it
+        bar_color = (111, 210, 46)
+        bar_position = [self.rect.x + 10, self.rect.y - 20, self.health, 5]
+        pygame.draw.rect(surface, bar_color, bar_position)
+
     def forward(self):
         # move if not collide with the player
         if not self.game.check_collision(self, self.game.players):
